@@ -4,9 +4,18 @@ import (
 	"fmt"
 )
 
-func New() {
-
+func main() {
+  // cli := New()
+  addCommand("asteroid run hi", hi)
 }
+
+func hi(hi Dict){
+  fmt.Println("hi")
+}
+
+// func New() {
+//    return 1
+// }
 
 func addCommand(cmd string, fn function) {
 	fmt.Println(cmd)
@@ -16,6 +25,6 @@ func Run() {
 
 }
 
-type dict map[string]interface{}
+type Dict map[string]interface{}
 
-type function func(args dict)
+type function func(args Dict)
