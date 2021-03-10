@@ -7,14 +7,14 @@ import (
 
 func main() {}
 
-func New() cli {
+func New() CLI {
 	var cmds []cmd
-	return cli{
+	return CLI{
 		commands: cmds,
 	}
 }
 
-func (cli *cli) AddCommand(command string, fn function) {
+func (cli *CLI) AddCommand(command string, fn function) {
 	cli.commands = append(cli.commands, cmd{
 		cmd:    command,
 		arr:    strings.Split(command, " "),
@@ -23,7 +23,7 @@ func (cli *cli) AddCommand(command string, fn function) {
 	})
 }
 
-func (cli *cli) Run(args []string) {
+func (cli *CLI) Run(args []string) {
 	//creating dict
 	param := make(Dict)
 
@@ -63,7 +63,7 @@ func checkArg(arg string) bool {
 	}
 }
 
-type cli struct {
+type CLI struct {
 	commands []cmd
 }
 
