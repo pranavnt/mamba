@@ -1,9 +1,11 @@
-package main
+package mamba
 
 import (
 	"fmt"
 	"strings"
 )
+
+func main() {}
 
 func New() cli {
 	var cmds []cmd

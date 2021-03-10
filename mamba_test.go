@@ -1,11 +1,12 @@
-package main
+package mamba
 
 import (
 	"fmt"
 	"os"
+	"testing"
 )
 
-func main() {
+func test(t *testing.T) {
 	app := New()
 	app.addCommand("run {fileName}", runFile)
 	app.addCommand("deploy {directory}", deploy)
