@@ -43,20 +43,20 @@ func (cli *cli) Run(args []string) {
 		// checking if lengths match up
 		if command.length == len(args)-1 {
 			// going through words in command
-			for i := 0; i <= command.length-1; i++ {
+			for i := 0; i < command.length; i++ {
 				// checking if word is like {this}
 				if checkArg(command.arr[i]) {
 					// fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
 					param[command.arr[i][1:len(command.arr[i])-1]] = args[i+1]
 					fmt.Println(param)
 				} else {
-					if command.arr[i] == args[i+1] {
-						fmt.Println("continue")
-						continue
-					} else {
-						fmt.Println("break")
+					if command.arr[i] != args[i+1] {
 						break
 					}
+				}
+
+				if i+1 == command.length {
+					command.fun(param)
 				}
 			}
 		}
