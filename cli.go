@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	checkArg("{hi}")
 	app := New()
 	app.addCommand("{testing}", hi)
 	app.addCommand("run hi", hi)
@@ -36,11 +35,14 @@ func (cli *cli) addCommand(command string, fn function) {
 }
 
 func (cli *cli) Run(args []string) {
+	param := make(Dict)
 	for _, command := range cli.commands {
 		if command.length == len(os.Args)-1 {
 			for i := 0; i <= command.length-1; i++ {
 				if checkArg(command.arr[i]) {
-					fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
+					// fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
+					param[command.arr[i][1:len(command.arr[i])-1]] = args[i+1]
+					fmt.Println(param)
 				} else {
 					fmt.Println(args[i+1])
 				}
