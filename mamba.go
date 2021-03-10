@@ -14,7 +14,7 @@ func New() cli {
 	}
 }
 
-func (cli *cli) addCommand(command string, fn function) {
+func (cli *cli) AddCommand(command string, fn function) {
 	cli.commands = append(cli.commands, cmd{
 		cmd:    command,
 		arr:    strings.Split(command, " "),

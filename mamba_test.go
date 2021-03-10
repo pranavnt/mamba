@@ -7,9 +7,9 @@ import (
 
 func test(t *testing.T) {
 	app := New()
-	app.addCommand("run {fileName}", runFile)
-	app.addCommand("deploy {directory}", deploy)
-	app.addCommand("help {command}", help)
+	app.AddCommand("run {fileName}", runFile)
+	app.AddCommand("deploy {directory}", deploy)
+	app.AddCommand("help {command}", help)
 	app.Run([]string{"ace", "run", "helloWorld.py"})
 	app.Run([]string{"ace", "deploy", "src"})
 	app.Run([]string{"ace", "help", "run"})
