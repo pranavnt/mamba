@@ -59,7 +59,7 @@ Here, you are actually running the app, and `os.Args` are the command line argum
 
 The full code:
 
-```
+```go
 import (
     github.com/pranavnt/mamba
 )
