@@ -16,12 +16,12 @@ func test(t *testing.T) {
 
 func runFile(params Dict) {
 	fmt.Println("About to run " + params["fileName"].(string))
-	// other code
+	// other code for running the code
 }
 
 func deploy(params Dict) {
 	fmt.Println("About to deploy " + params["directory"].(string))
-	// other code
+	// other code for deployment
 }
 
 func help(params Dict) {

@@ -38,11 +38,13 @@ func (cli *cli) Run(args []string) {
 					// fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
 					param[command.arr[i][1:len(command.arr[i])-1]] = args[i+1]
 				} else {
+					// if the commands are not the same move to the next one
 					if command.arr[i] != args[i+1] {
 						break
 					}
 				}
 
+				// running command!
 				if i+1 == command.length {
 					command.fun(param)
 					return
