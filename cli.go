@@ -2,21 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
-
-func main() {
-	app := New()
-	app.addCommand("{testing}", hi)
-	app.addCommand("hi {d}", hi)
-	app.addCommand("run hi 2", hi)
-	app.Run(os.Args)
-}
-
-func hi(hi Dict) {
-	fmt.Println("hi")
-}
 
 func New() cli {
 	var cmds []cmd
