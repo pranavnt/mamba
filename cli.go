@@ -9,7 +9,7 @@ import (
 func main() {
 	checkArg("{hi}")
 	app := New()
-	app.addCommand("hi", hi)
+	app.addCommand("{testing}", hi)
 	app.addCommand("run hi", hi)
 	app.addCommand("run hi 2", hi)
 	app.Run(os.Args)
@@ -40,7 +40,7 @@ func (cli *cli) Run(args []string) {
 		if command.length == len(os.Args)-1 {
 			for i := 0; i <= command.length-1; i++ {
 				if checkArg(command.arr[i]) {
-
+					fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
 				} else {
 					fmt.Println(args[i+1])
 				}
