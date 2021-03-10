@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
 	app := New()
+	app.addCommand("asteroid run hi", hi)
+	app.addCommand("asteroid run hi", hi)
 	app.addCommand("asteroid run hi", hi)
 }
 
@@ -20,8 +23,13 @@ func New() cli {
 	}
 }
 
-func (cli cli) addCommand(cmd string, fn function) {
-	fmt.Println(cmd)
+func (cli *cli) addCommand(command string, fn function) {
+	cli.commands = append(cli.commands, cmd{
+		cmd:    command,
+		length: len(strings.Split(command, " ")),
+		fun:    fn,
+	})
+	fmt.Println(cli.commands)
 }
 
 func Run() {
@@ -35,7 +43,7 @@ type cli struct {
 type cmd struct {
 	cmd    string
 	length int
-	fn     function
+	fun    function
 }
 
 type Dict map[string]interface{}
