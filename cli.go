@@ -39,16 +39,21 @@ func (cli *cli) Run(args []string) {
 	for _, command := range cli.commands {
 		if command.length == len(os.Args)-1 {
 			for i := 0; i <= command.length-1; i++ {
-				fmt.Println(command.arr[i])
-				fmt.Println(args[i+1])
+				if checkArg(command.arr[i]) {
+
+				} else {
+					fmt.Println(args[i+1])
+				}
 			}
 		}
 	}
 }
 
-func checkArg(arg string) {
-	if arg[len(arg)-1:] == "}" && arg[0:1] == "{" {
-		fmt.Println("t")
+func checkArg(arg string) bool {
+	if arg[0:1] == "{" && arg[len(arg)-1:] == "}" {
+		return true
+	} else {
+		return false
 	}
 }
 
