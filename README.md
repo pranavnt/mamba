@@ -4,7 +4,7 @@
 </p>
 <h2 align="center">Build command line apps in Go with ease</h2>
 
-## Installation
+## Installation 💻
 
 To install mamba, run the following command in terminal:
 
@@ -20,7 +20,7 @@ import (
 )
 ```
 
-## Usage
+## Usage 📝
 
 For the usage example, we'll create a command line app called `ace`, which is used for deploying apps.
 
@@ -47,6 +47,18 @@ func deploy(params mamba.Dict) {
 }
 ```
 
-Here, this function reads the fileName parameter
+Here is a sample function where you can read and print the fileName. You can later use this parameter to actually deploy the project in this app.
 
-## Design Goals
+Finally, in order to run the code, you need to add:
+
+```go
+app.Run(os.Args)
+```
+
+Here, you are actually running the app, and `os.Args` are the command line arguments that are parsed by mamba. You're done!
+
+## Design Goals 🎨
+
+### Simplicity
+
+### Readability
