@@ -2,7 +2,6 @@ package mamba
 
 import (
 	"fmt"
-	"os"
 	"testing"
 )
 
@@ -11,7 +10,9 @@ func test(t *testing.T) {
 	app.addCommand("run {fileName}", runFile)
 	app.addCommand("deploy {directory}", deploy)
 	app.addCommand("help {command}", help)
-	app.Run(os.Args)
+	app.Run([]string{"ace", "run", "helloWorld.py"})
+	app.Run([]string{"ace", "deploy", "src"})
+	app.Run([]string{"ace", "help", "run"})
 }
 
 func runFile(params Dict) {
