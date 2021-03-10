@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	checkArg("{hi}")
 	app := New()
 	app.addCommand("hi", hi)
 	app.addCommand("run hi", hi)
@@ -28,6 +29,7 @@ func New() cli {
 func (cli *cli) addCommand(command string, fn function) {
 	cli.commands = append(cli.commands, cmd{
 		cmd:    command,
+		arr:    strings.Split(command, " "),
 		length: len(strings.Split(command, " ")),
 		fun:    fn,
 	})
@@ -36,8 +38,17 @@ func (cli *cli) addCommand(command string, fn function) {
 func (cli *cli) Run(args []string) {
 	for _, command := range cli.commands {
 		if command.length == len(os.Args)-1 {
-			fmt.Println(command.cmd)
+			for i := 0; i <= command.length-1; i++ {
+				fmt.Println(command.arr[i])
+				fmt.Println(args[i+1])
+			}
 		}
+	}
+}
+
+func checkArg(arg string) {
+	if arg[len(arg)-1:] == "}" && arg[0:1] == "{" {
+		fmt.Println("t")
 	}
 }
 
@@ -47,6 +58,7 @@ type cli struct {
 
 type cmd struct {
 	cmd    string
+	arr    []string
 	length int
 	fun    function
 }
