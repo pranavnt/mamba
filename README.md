@@ -1,7 +1,3 @@
-# Mamba
-
-#
-
 <h1 align="center">Mamba</h1> 
 <p align="center">
     <img src="./.github/logo.png" width="15%" />
