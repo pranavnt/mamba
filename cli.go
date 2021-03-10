@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
 func main() {
 	app := New()
-	app.addCommand("asteroid run hi", hi)
-	app.addCommand("asteroid run hi", hi)
-	app.addCommand("asteroid run hi", hi)
+	app.addCommand("run hi", hi)
+	app.addCommand("run hi", hi)
+	app.addCommand("run hi", hi)
+	app.Run(os.Args)
 }
 
 func hi(hi Dict) {
@@ -29,11 +31,12 @@ func (cli *cli) addCommand(command string, fn function) {
 		length: len(strings.Split(command, " ")),
 		fun:    fn,
 	})
-	fmt.Println(cli.commands)
 }
 
-func Run() {
-
+func (cli *cli) Run(args []string) {
+	for _, command := range cli.commands {
+		fmt.Println(command.cmd)
+	}
 }
 
 type cli struct {
