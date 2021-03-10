@@ -35,16 +35,26 @@ func (cli *cli) addCommand(command string, fn function) {
 }
 
 func (cli *cli) Run(args []string) {
+	//creating dict
 	param := make(Dict)
+
+	// going through all commands
 	for _, command := range cli.commands {
-		if command.length == len(os.Args)-1 {
+		// checking if lengths match up
+		if command.length == len(args)-1 {
+			// going through words in command
 			for i := 0; i <= command.length-1; i++ {
+				// checking if word is like {this}
 				if checkArg(command.arr[i]) {
 					// fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
 					param[command.arr[i][1:len(command.arr[i])-1]] = args[i+1]
 					fmt.Println(param)
 				} else {
-					fmt.Println(args[i+1])
+					if command.arr[i] == args[i+1] {
+						continue
+					} else {
+						break
+					}
 				}
 			}
 		}
