@@ -8,9 +8,9 @@ import (
 
 func main() {
 	app := New()
+	app.addCommand("hi", hi)
 	app.addCommand("run hi", hi)
-	app.addCommand("run hi", hi)
-	app.addCommand("run hi", hi)
+	app.addCommand("run hi 2", hi)
 	app.Run(os.Args)
 }
 
@@ -35,7 +35,9 @@ func (cli *cli) addCommand(command string, fn function) {
 
 func (cli *cli) Run(args []string) {
 	for _, command := range cli.commands {
-		fmt.Println(command.cmd)
+		if command.length == len(os.Args)-1 {
+			fmt.Println(command.cmd)
+		}
 	}
 }
 
