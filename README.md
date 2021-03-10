@@ -27,7 +27,7 @@ For the usage example, we'll create a command line app called `ace`, which is us
 First, we will want to initialize a CLI app, which is done through:
 
 ```go
-app := New()
+app := mamba.New()
 ```
 
 Next, we will want to add commands to our app, which you do through `addCommand`:
@@ -56,6 +56,25 @@ app.Run(os.Args)
 ```
 
 Here, you are actually running the app, and `os.Args` are the command line arguments that are parsed by mamba. You're done!
+
+The full code:
+
+```
+import (
+    github.com/pranavnt/mamba
+)
+
+func main() {
+    app := mamba.New()
+    app.addCommand("deploy {fileName}", deploy)
+    app.Run(os.Args)
+}
+
+func deploy(params mamba.Dict) {
+	fmt.Println("About to deploy " + params["fileName"].(string))
+	// code for deployment
+}
+```
 
 ## Design Goals 🎨
 
