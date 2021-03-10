@@ -16,7 +16,7 @@ To use it, include it in your imports:
 
 ```go
 import (
-    github.com/pranavnt/mamba
+    "github.com/pranavnt/mamba"
 )
 ```
 
@@ -61,7 +61,7 @@ The full code:
 
 ```go
 import (
-    github.com/pranavnt/mamba
+    "github.com/pranavnt/mamba"
 )
 
 func main() {
