@@ -48,7 +48,6 @@ func (cli *cli) Run(args []string) {
 				if checkArg(command.arr[i]) {
 					// fmt.Println(command.arr[i][1 : len(command.arr[i])-1])
 					param[command.arr[i][1:len(command.arr[i])-1]] = args[i+1]
-					fmt.Println(param)
 				} else {
 					if command.arr[i] != args[i+1] {
 						break
@@ -57,10 +56,12 @@ func (cli *cli) Run(args []string) {
 
 				if i+1 == command.length {
 					command.fun(param)
+					return
 				}
 			}
 		}
 	}
+	fmt.Println("Command not found :(")
 }
 
 func checkArg(arg string) bool {
