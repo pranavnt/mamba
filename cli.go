@@ -5,12 +5,12 @@ import (
 )
 
 func main() {
-  // cli := New()
-  addCommand("asteroid run hi", hi)
+	// cli := New()
+	addCommand("asteroid run hi", hi)
 }
 
-func hi(hi Dict){
-  fmt.Println("hi")
+func hi(hi Dict) {
+	fmt.Println("hi")
 }
 
 // func New() {
@@ -23,6 +23,16 @@ func addCommand(cmd string, fn function) {
 
 func Run() {
 
+}
+
+type cli struct {
+	commands []cmd
+}
+
+type cmd struct {
+	cmd    string
+	length int
+	fn     function
 }
 
 type Dict map[string]interface{}
