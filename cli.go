@@ -9,7 +9,7 @@ import (
 func main() {
 	app := New()
 	app.addCommand("{testing}", hi)
-	app.addCommand("run hi", hi)
+	app.addCommand("hi {d}", hi)
 	app.addCommand("run hi 2", hi)
 	app.Run(os.Args)
 }
@@ -51,8 +51,10 @@ func (cli *cli) Run(args []string) {
 					fmt.Println(param)
 				} else {
 					if command.arr[i] == args[i+1] {
+						fmt.Println("continue")
 						continue
 					} else {
+						fmt.Println("break")
 						break
 					}
 				}
