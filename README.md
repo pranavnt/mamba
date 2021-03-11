@@ -30,10 +30,10 @@ First, we will want to initialize a CLI app, which is done through:
 app := mamba.New()
 ```
 
-Next, we will want to add commands to our app, which you do through `addCommand`:
+Next, we will want to add commands to our app, which you do through `AddCommand`:
 
 ```go
-app.addCommand("deploy {fileName}", deploy)
+app.AddCommand("deploy {fileName}", deploy)
 ```
 
 The command above creates the deploy command, which takes in a parameter for `fileName` (the user will enter this). For example, this would handle `ace run hello.py`.
@@ -60,19 +60,23 @@ Here, you are actually running the app, and `os.Args` are the command line argum
 The full code:
 
 ```go
+package main
+
 import (
-    "github.com/pranavnt/mamba"
+	"fmt"
+    "os"
+	"github.com/pranavnt/mamba"
 )
 
 func main() {
-    app := mamba.New()
-    app.addCommand("deploy {fileName}", deploy)
-    app.Run(os.Args)
+	app := mamba.New()
+	app.AddCommand("deploy {directory}", deploy)
+	app.Run(os.Args)
 }
 
 func deploy(params mamba.Dict) {
-	fmt.Println("About to deploy " + params["fileName"].(string))
-	// code for deployment
+	fmt.Println("About to deploy " + params["directory"].(string))
+	// other code for deployment
 }
 ```
 
