@@ -5,8 +5,7 @@ import (
 	"strings"
 )
 
-func main() {}
-
+// Creates a new CLI app with Mamba!
 func New() CLI {
 	var cmds []cmd
 	return CLI{
@@ -14,6 +13,7 @@ func New() CLI {
 	}
 }
 
+// This is how you add a new command 
 func (cli *CLI) AddCommand(command string, fn function) {
 	cli.commands = append(cli.commands, cmd{
 		cmd:    command,
@@ -23,6 +23,7 @@ func (cli *CLI) AddCommand(command string, fn function) {
 	})
 }
 
+// This is how you run your CLI - the parameter should usually be `os.Args`
 func (cli *CLI) Run(args []string) {
 	//creating dict
 	param := make(Dict)
@@ -63,6 +64,7 @@ func checkArg(arg string) bool {
 	}
 }
 
+// The structure for your CLI app 
 type CLI struct {
 	commands []cmd
 }
@@ -74,6 +76,7 @@ type cmd struct {
 	fun    function
 }
 
+// The type for a dictionary - This is how parameters are passed to your functions
 type Dict map[string]interface{}
 
 type function func(args Dict)
