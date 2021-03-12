@@ -2,6 +2,11 @@
 <p align="center">
     <img src="./.github/mamba.png" width="15%" />
 </p>
+<div align="center">
+<a href="https://pkg.go.dev/github.com/pranavnt/mamba"><img alt="Godoc Reference" src="https://godoc.org/github.com/pranavnt/mamba?status.svg"></a>
+<img src="https://github.com/pranavnt/mamba/workflows/Push/badge.svg" alt="push workflow result"/>
+<img alt="go version" src="https://img.shields.io/github/go-mod/go-version/pranavnt/mamba"/>
+</div>
 <h2 align="center">Build command line apps in Go with ease</h2>
 
 ## Installation 💻
@@ -79,9 +84,3 @@ func deploy(params mamba.Dict) {
 	// other code for deployment
 }
 ```
-
-## Design Goals 🎨
-
-### Simplicity
-
-### Readability
