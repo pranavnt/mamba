@@ -6,15 +6,17 @@ import (
 )
 
 // Creates a new CLI app with Mamba!
-func New() CLI {
+func New() cli {
 	var cmds []cmd
-	return CLI{
+	return cli{
 		commands: cmds,
 	}
 }
 
 // This is how you add a new command 
-func (cli *CLI) AddCommand(command string, fn function) {
+// The first parameter will be the specific command 
+// The second command will be the function called when this command is used
+func (cli *cli) AddCommand(command string, fn function) {
 	cli.commands = append(cli.commands, cmd{
 		cmd:    command,
 		arr:    strings.Split(command, " "),
@@ -23,8 +25,8 @@ func (cli *CLI) AddCommand(command string, fn function) {
 	})
 }
 
-// This is how you run your CLI - the parameter should usually be `os.Args`
-func (cli *CLI) Run(args []string) {
+// This is how you run your CLI - the parameter should be `os.Args`, as those are the arguments to be parsed!
+func (cli *cli) Run(args []string) {
 	//creating dict
 	param := make(Dict)
 
@@ -65,7 +67,8 @@ func checkArg(arg string) bool {
 }
 
 // The structure for your CLI app 
-type CLI struct {
+//
+type cli struct {
 	commands []cmd
 }
 
@@ -77,6 +80,7 @@ type cmd struct {
 }
 
 // The type for a dictionary - This is how parameters are passed to your functions
+// It's just a map[string]interface{}
 type Dict map[string]interface{}
 
 type function func(args Dict)

@@ -5,13 +5,22 @@ import (
 	"testing"
 )
 
-func test(t *testing.T) {
+func testRun(t *testing.T) {
 	app := New()
 	app.AddCommand("run {fileName}", runFile)
-	app.AddCommand("deploy {directory}", deploy)
-	app.AddCommand("help {command}", help)
 	app.Run([]string{"ace", "run", "helloWorld.py"})
+}
+
+
+func testDeploy(t *testing.T) {
+	app := New()
+	app.AddCommand("deploy {directory}", deploy)
 	app.Run([]string{"ace", "deploy", "src"})
+}
+
+func testHelp(t *testing.T) {
+	app := New()
+	app.AddCommand("help {command}", help)
 	app.Run([]string{"ace", "help", "run"})
 }
 
