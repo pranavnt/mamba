@@ -81,6 +81,5 @@ type cmd struct {
 
 // The type for a dictionary - This is how parameters are passed to your functions
 // It's just a map[string]interface{}
-type Dict map[string]interface{}
-
+type Dict map[string] string
 type function func(args Dict)
